@@ -8,7 +8,18 @@ This plugin will track the touch motion along an element, and send information a
 how far the touch has moved to one callback function per axis. These callback functions
 can be used to move an array of jQuery-selected elements.
 
-Syntax:
+## Getting Started
+
+### Install
+TouchMotion is on Bower cause I want to be one of the cool kids and downloading files is so two thousand and late.
+
+```
+bower install touchmotion
+```
+
+Or you could just download the JS file and include it in your project with a `<script>` tag like an old person.
+
+### Syntax
 ```
 $('.yourElementSelector').touchMotionController( {arguments} );
 ```
