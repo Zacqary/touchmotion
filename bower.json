@@ -5,6 +5,7 @@
   "authors": [
     "Zacqary Adam Xeper <zacqary@plankhead.com>"
   ],
+  "main": "jquery.TouchMotionController.js",
   "description": "Library of components for touchy-feely stuff",
   "keywords": [
     "touch"
