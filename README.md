@@ -8,6 +8,11 @@ This plugin will track the touch motion along an element, and send information a
 how far the touch has moved to one callback function per axis. These callback functions
 can be used to move an array of jQuery-selected elements.
 
+Syntax:
+```
+$('.yourElementSelector').touchMotionController( {arguments} );
+```
+
 ## Arguments
 ### elementX / elementY (jQuery Object)
 A jQuery selection of the element(s) that will move with the user's touch.
