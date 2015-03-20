@@ -1,0 +1,23 @@
+{
+  "name": "touchmotion",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Zacqary/touchmotion",
+  "authors": [
+    "Zacqary Adam Xeper <zacqary@plankhead.com>"
+  ],
+  "description": "Library of components for touchy-feely stuff",
+  "keywords": [
+    "touch"
+  ],
+  "license": "Unlicense",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
