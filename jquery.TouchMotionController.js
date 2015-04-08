@@ -60,14 +60,18 @@ Arguments:
 			callback: args.callbackX,
 			sensitivity: args.sensitivityX || args.sensitivity || 75
 		};
-		touchX.element.key = "elementX";
+		if (touchX.element) {
+			touchX.element.key = "elementX";
+		}
 		// Settings for tracking a touch moving along the y-axis
 		var touchY = {
 			element: args.elementY,
 			callback: args.callbackY,
 			sensitivity: args.sensitivityY || args.sensitivity || 75
 		};
-		touchY.element.key = "elementY";
+		if (touchY.element){
+			touchY.element.key = "elementY";
+		}
 		var priorityAxis = args.priorityAxis || 'none';
 		var clickHandler = args.clickHandler;
 
@@ -140,8 +144,12 @@ Arguments:
 	      			}
 	      		}
 			} else if (event.type === 'touchend' || event.type === 'touchcancel'){
-				releaseElementTransition(touchX.element);
-				releaseElementTransition(touchY.element);
+				if (touchX.element){
+					releaseElementTransition(touchX.element);
+				}
+				if (touchY.element){
+					releaseElementTransition(touchY.element);
+				}
 				// If there was finger movement (i.e. not a tap)
 				if (myTouch.current){
 					if (priorityAxis !== 'none'){
@@ -162,15 +170,19 @@ Arguments:
 					} else {
 						// Trigger each touchend callback if the element has moved beyond its sensitivity
 						// Otherwise, trigger them as if the element hasn't moved
-						if (touchX.callback && Math.abs(touchX.delta) >= touchX.sensitivity){
-							touchX.callback(touchX.delta).end();
-						} else {
-							touchX.callback(0);
+						if (touchX.callback){
+							if (Math.abs(touchX.delta) >= touchX.sensitivity){
+								touchX.callback(touchX.delta).end();
+							} else {
+								touchX.callback(0).end();
+							}
 						}
-						if (touchY.callback && Math.abs(touchY.delta) >= touchY.sensitivity){
-							touchY.callback(touchY.delta).end();
-						} else {
-							touchY.callback(0);
+						if (touchY.callback){
+							if (Math.abs(touchY.delta) >= touchY.sensitivity){
+								touchY.callback(touchY.delta).end();
+							} else {
+								touchY.callback(0).end();
+							}
 						}
 					}
 				} else {
