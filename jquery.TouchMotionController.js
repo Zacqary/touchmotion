@@ -206,14 +206,15 @@ Arguments:
 			// If this element hasn't already been stored, store the first element's
 			// transition duration and then set them all to 0
 			if (!elementTransitions[element.key]){
-				var style = window.getComputedStyle(element[0]);
-				elementTransitions[element.key] = style.getPropertyValue('transition-duration');
-				element.css('transition-duration','0');
+				elementTransitions[element.key] = element.css('transition-duration') || element.css('-webkit-transition-duration');
+				element.css('transition-duration','0s');
+				element.css('-webkit-transition-duration','0s');
 			}
 		}
 		function releaseElementTransition(element){
 			if (elementTransitions[element.key]){
 				element.css('transition-duration', elementTransitions[element.key]);
+				element.css('-webkit-transition-duration', elementTransitions[element.key]);
 				elementTransitions[element.key] = null;
 			}
 		}
