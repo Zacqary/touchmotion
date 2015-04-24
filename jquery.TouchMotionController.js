@@ -97,6 +97,14 @@ Arguments:
 	  				secondary = touchY;
 	  			}
 			}
+			if ( Array.isArray(args.overrideElements) ){
+				for (var i in args.overrideElements){
+					if (event.target === args.overrideElements[i] || 
+						event.target === args.overrideElements[i][0]){
+						return false;
+					}
+				}
+			}
 
 			if (event.type === 'touchstart'){
 				// Clear myTouch and record the starting point of the touch
@@ -187,7 +195,9 @@ Arguments:
 					}
 				} else {
 					// If there was no finger movement, trigger the clickHandler
-					clickHandler(myTouch.start);
+					if (clickHandler){
+						clickHandler(myTouch.start);
+					}
 				}
 				myTouch = {};
 			}
